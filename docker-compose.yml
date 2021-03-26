@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  docker_node-schedule:
+    container_name: docker_node-schedule
+    image: docker_node-schedule:latest
+    build: ./dockerfile
+    volumes:
+      - ./app:/root/app
+    command:
+      - /bin/bash
+      - -c
+      - |
+        cnpm i --production
+        npm run serve
